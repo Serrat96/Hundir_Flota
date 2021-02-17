@@ -1,13 +1,13 @@
 import numpy as np
 from Barco import *
 from Tablero import *
+
 class Jugador:
 
     def __init__(self):
 
         self.tablero_barcos = Tablero(10, self.barcos())
         self.tablero_disparos = Tablero(10)
-
 
     def barcos(self):
 
@@ -26,10 +26,8 @@ class Jugador:
 
     def imprimir_tablero(self):
 
-        print(self.tablero_barcos.matriz)
+        for i in range(len(self.tablero_barcos.matriz)):
 
+            print(self.tablero_barcos.matriz[i], "         ", self.tablero_disparos.matriz[i])
 
-
-
-
-
+        print("\n")
