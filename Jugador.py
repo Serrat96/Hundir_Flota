@@ -8,6 +8,7 @@ class Jugador:
 
         self.tablero_barcos = Tablero(10, self.barcos())
         self.tablero_disparos = Tablero(10)
+        self.vidas = 20
 
     def barcos(self):
 
@@ -20,9 +21,6 @@ class Jugador:
         array_barcos_4_pos = np.array([Barco((8, 'F'), 4, 1)])
 
         return np.concatenate((array_barcos_1_pos, array_barcos_2_pos, array_barcos_3_pos, array_barcos_4_pos))
-
-    def tablero_barcos(self):
-        pass
 
     def imprimir_tablero(self):
 
