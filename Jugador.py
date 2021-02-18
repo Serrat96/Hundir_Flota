@@ -1,6 +1,8 @@
 import numpy as np
+import random
 from Barco import *
 from Tablero import *
+import Constantes as cs
 
 class Jugador:
 
@@ -8,7 +10,7 @@ class Jugador:
 
         self.tablero_barcos = Tablero(10, self.barcos())
         self.tablero_disparos = Tablero(10)
-        self.vidas = 2
+        self.vidas = 20
 
     def barcos(self):
 
@@ -29,3 +31,29 @@ class Jugador:
             print(self.tablero_barcos.matriz[i], "         ", self.tablero_disparos.matriz[i])
 
         print("\n")
+
+    def posicion_random(self):
+
+        x = random.randint(0, 9)
+
+        y = random.randint(0, 9)
+
+        z = random.randint(0,1)
+
+        return (x, y, z)
+
+    def barcos_random(self):
+
+        for propiedades in cs.TIPOS_BARCO:
+
+            posicion = self.posicion_random()
+
+            x = posicion[0]
+
+            y = posicion[1]
+
+            z = posicion[2]
+
+            slicing_horizontal = self.tablero_barcos.matriz[x : x + propiedades[0], y]
+
+            print(slicing_horizontal)
