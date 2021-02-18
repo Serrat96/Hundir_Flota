@@ -1,4 +1,7 @@
 from Jugador import *
+import random
+import Constantes as cs
+import time
 
 def disparar(posicion, de_jugador, a_jugador):
 
@@ -20,11 +23,16 @@ def disparar(posicion, de_jugador, a_jugador):
 
 def traducir_posicion(posicion):
 
-    cadena_letras = "ABCDEFGHIJ"
-
     x = posicion[0] - 1
 
-    y = cadena_letras.index(posicion[1])
+    y = cs.LISTA_CARACTERES.index(posicion[1])
+
+    return (x, y)
+
+def posicion_random():
+
+    x = random.randint(1, 10)
+    y = cs.LISTA_CARACTERES[random.randint(0, 9)]
 
     return (x, y)
 
@@ -32,12 +40,21 @@ jugador_1 = Jugador()
 
 jugador_2 = Jugador()
 
-jugador_1.imprimir_tablero()
+while jugador_1.vidas > 0 and jugador_2.vidas > 0:
 
-jugador_2.imprimir_tablero()
+    jugador_1.imprimir_tablero()
+    jugador_2.imprimir_tablero()
 
-disparar((1,"D"), jugador_1, jugador_2)
+    posicion = str(input("Introduzca la coordenada a la que desea diparar: "))
 
-jugador_1.imprimir_tablero()
+    tupla_posicion = (int(posicion[0]), posicion[1])
 
-jugador_2.imprimir_tablero()
+    disparar(tupla_posicion, jugador_1, jugador_2)
+
+    tupla_posicion = posicion_random()
+
+    print(tupla_posicion)
+
+    disparar(tupla_posicion, jugador_2, jugador_1)
+
+    time.sleep(3)

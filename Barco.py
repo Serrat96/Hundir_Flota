@@ -5,4 +5,3 @@ class Barco:
         self.posicion = posicion
         self.eslora = eslora
         self.axis = axis
-

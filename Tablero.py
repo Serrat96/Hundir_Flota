@@ -4,7 +4,7 @@ class Tablero:
 
     def __init__(self, dimension, barcos = []):
 
-        self.matriz = np.full((dimension, dimension), "0")
+        self.matriz = np.full((dimension, dimension), "=")
         self.barcos = barcos
         self.colocar_barcos()
 

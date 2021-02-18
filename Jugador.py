@@ -8,7 +8,7 @@ class Jugador:
 
         self.tablero_barcos = Tablero(10, self.barcos())
         self.tablero_disparos = Tablero(10)
-        self.vidas = 20
+        self.vidas = 2
 
     def barcos(self):
 
