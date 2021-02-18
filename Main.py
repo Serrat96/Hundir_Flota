@@ -1,7 +1,8 @@
 from Jugador import *
 import random
 import Constantes as cs
-import time
+from time import sleep
+from tqdm import tqdm
 
 def disparar(posicion, de_jugador, a_jugador):
 
@@ -40,6 +41,28 @@ jugador_1 = Jugador()
 
 jugador_2 = Jugador()
 
+print("Bienvenido al juego HUNDIR LA FLOTA")
+
+sleep(0.5)
+
+print("Los símbolos '=' hacen referncia al agua")
+
+sleep(0.5)
+
+print("El símbolo 'Ø' hace referencia a un disparo fallido")
+
+sleep(0.5)
+
+print("El símbolo 'X' hace referencia a un barco tocado")
+
+sleep(0.5)
+
+input("Presiona enter para continuar: ")
+
+print("CARGANDO...")
+for i in tqdm(range(10)):
+    sleep(0.5)
+
 while jugador_1.vidas > 0 and jugador_2.vidas > 0:
 
     jugador_1.imprimir_tablero()
@@ -57,4 +80,6 @@ while jugador_1.vidas > 0 and jugador_2.vidas > 0:
 
     disparar(tupla_posicion, jugador_2, jugador_1)
 
-    time.sleep(3)
+    print("Calculando disparo de la CPU")
+
+    sleep(3)
