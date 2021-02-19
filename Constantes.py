@@ -1,3 +1,15 @@
 LISTA_CARACTERES = "ABCDEFGHIJ"
 
+LISTA_CARACTERES = ['A','B','C','D','E','F','G','H','I','J']
+
+LISTA_NUMEROS = [1,2,3,4,5,6,7,8,9,10]
+
 TIPOS_BARCO = [(4, 1), (3, 2), (2, 3), (1, 4)]
+
+BARCO_CHAR= "1"
+
+AGUA_CHAR = "="
+
+TOCADO_CHAR = "X"
+
+AGUA_CHAR = "Ø"

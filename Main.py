@@ -8,11 +8,11 @@ def disparar(posicion, de_jugador, a_jugador):
 
     posicion_traducida = traducir_posicion(posicion)
 
-    if a_jugador.tablero_barcos.matriz[posicion_traducida[0],posicion_traducida[1]] == "1":
+    if a_jugador.tablero_barcos.matriz[posicion_traducida[0],posicion_traducida[1]] == cs.BARCO_CHAR:
 
-        de_jugador.tablero_disparos.matriz[posicion_traducida[0],posicion_traducida[1]] = "X"
+        de_jugador.tablero_disparos.matriz[posicion_traducida[0],posicion_traducida[1]] = cs.TOCADO_CHAR
 
-        a_jugador.tablero_barcos.matriz[posicion_traducida[0],posicion_traducida[1]] = "X"
+        a_jugador.tablero_barcos.matriz[posicion_traducida[0],posicion_traducida[1]] = cs.TOCADO_CHAR
 
         a_jugador.vidas -= 1
 
@@ -20,9 +20,9 @@ def disparar(posicion, de_jugador, a_jugador):
 
     else:
 
-        de_jugador.tablero_disparos.matriz[posicion_traducida[0],posicion_traducida[1]] = "Ø"
+        de_jugador.tablero_disparos.matriz[posicion_traducida[0],posicion_traducida[1]] = cs.AGUA_CHAR
 
-        a_jugador.tablero_barcos.matriz[posicion_traducida[0],posicion_traducida[1]] = "Ø"
+        a_jugador.tablero_barcos.matriz[posicion_traducida[0],posicion_traducida[1]] = cs.AGUA_CHAR
 
         return False
 
@@ -81,25 +81,27 @@ print("El símbolo 'X' hace referencia a un barco tocado")
 sleep(0.5)
 
 input("Presiona enter para continuar: ")
-jugador_1.barcos_random()
 
-print("CARGANDO...")
+"""print("CARGANDO...")
 for i in tqdm(range(10)):
-    sleep(0.5)
+    sleep(0.5)"""
 
-"""while jugador_1.vidas > 0 and jugador_2.vidas > 0:
+while jugador_1.vidas > 0 and jugador_2.vidas > 0:
 
     jugador_1.imprimir_tablero()
 
-    
+    #jugador_2.imprimir_tablero()
 
-    jugador_2.imprimir_tablero()
-
-   if not es_maquina:
+    if not es_maquina:
 
         posicion = str(input("Introduzca la coordenada a la que desea diparar: "))
 
-        tupla_posicion = (int(posicion[0]), posicion[1])
+        if len(posicion) == 3:
+
+            tupla_posicion = (int(posicion[0:2]), posicion[2].upper())
+        else:
+
+            tupla_posicion = (int(posicion[0]), posicion[1].upper())
 
         resultado = disparar(tupla_posicion, jugador_1, jugador_2)
 
@@ -148,4 +150,4 @@ if es_maquina:
 
 else:
 
-    print("¡ENHORABUENA!, HAS GANADO")"""
+    print("¡ENHORABUENA!, HAS GANADO")
