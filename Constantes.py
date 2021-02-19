@@ -8,8 +8,8 @@ TIPOS_BARCO = [(4, 1), (3, 2), (2, 3), (1, 4)]
 
 BARCO_CHAR= "1"
 
-AGUA_CHAR = "="
+AGUA_CHAR = "~"
 
 TOCADO_CHAR = "X"
 
-AGUA_CHAR = "Ø"
+FALLO_CHAR = "Ø"

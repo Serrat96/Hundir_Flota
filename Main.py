@@ -4,7 +4,7 @@ import Constantes as cs
 from time import sleep
 from tqdm import tqdm
 
-def disparar(posicion, de_jugador, a_jugador):
+'''def disparar(posicion, de_jugador, a_jugador):
 
     posicion_traducida = traducir_posicion(posicion)
 
@@ -20,9 +20,9 @@ def disparar(posicion, de_jugador, a_jugador):
 
     else:
 
-        de_jugador.tablero_disparos.matriz[posicion_traducida[0],posicion_traducida[1]] = cs.AGUA_CHAR
+        de_jugador.tablero_disparos.matriz[posicion_traducida[0],posicion_traducida[1]] = cs.FALLO_CHAR
 
-        a_jugador.tablero_barcos.matriz[posicion_traducida[0],posicion_traducida[1]] = cs.AGUA_CHAR
+        a_jugador.tablero_barcos.matriz[posicion_traducida[0],posicion_traducida[1]] = cs.FALLO_CHAR
 
         return False
 
@@ -32,7 +32,7 @@ def traducir_posicion(posicion):
 
     y = cs.LISTA_CARACTERES.index(posicion[1])
 
-    return (x, y)
+    return (x, y)'''
 
 def posicion_random():
 
@@ -41,7 +41,35 @@ def posicion_random():
 
     return (x, y)
 
+
+def lee_input(jugador, posicion):
+
+    resp = None
+
+    try:
+        if len(posicion) == 3:
+            if int(posicion[0:2]) == 10 and posicion[2].upper() in cs.LISTA_CARACTERES:
+                resp = (int(posicion[0:2]), posicion[2].upper())
+
+        elif len(posicion) == 2:
+            if int(posicion[0]) > 0 and int(posicion[0]) < 10 and posicion[1].upper() in cs.LISTA_CARACTERES:
+                resp = (int(posicion[0]), posicion[1].upper())
+
+        elif posicion == "0":
+
+            resp = 0
+
+        if resp in jugador.disparos:
+            print("Ya has disparado en esta posicion")
+            resp = None
+
+        return resp
+    except:
+        return None
+
 es_maquina = False
+
+salir = False
 
 jugador_1 = Jugador()
 
@@ -68,7 +96,7 @@ print("                  __--___\n\
 
 sleep(0.5)
 
-print("Los símbolos '=' hacen referncia al agua")
+print("Los símbolos '~' hacen referncia al agua")
 
 sleep(0.5)
 
@@ -80,30 +108,45 @@ print("El símbolo 'X' hace referencia a un barco tocado")
 
 sleep(0.5)
 
-input("Presiona enter para continuar: ")
+input("Presiona enter para continuar")
 
 """print("CARGANDO...")
 for i in tqdm(range(10)):
     sleep(0.5)"""
 
-while jugador_1.vidas > 0 and jugador_2.vidas > 0:
-
-    jugador_1.imprimir_tablero()
+while jugador_1.vidas > 0 and jugador_2.vidas > 0 :
 
     #jugador_2.imprimir_tablero()
 
     if not es_maquina:
+        jugador_1.imprimir_tablero()
 
-        posicion = str(input("Introduzca la coordenada a la que desea diparar: "))
+        while True:
+            print("SALIR = 0")
+            posicion = str(input("Introduzca la coordenada a la que desea diparar (ej. 10f): "))
 
-        if len(posicion) == 3:
+            tupla_posicion = lee_input(jugador_1, posicion)
+
+            if tupla_posicion != None:
+
+                break
+
+            else:
+                print ("Entrada no válida")
+
+        if tupla_posicion == 0:
+
+            salir = True
+
+            break
+        '''if len(posicion) == 3:
 
             tupla_posicion = (int(posicion[0:2]), posicion[2].upper())
         else:
 
-            tupla_posicion = (int(posicion[0]), posicion[1].upper())
+            tupla_posicion = (int(posicion[0]), posicion[1].upper())'''
 
-        resultado = disparar(tupla_posicion, jugador_1, jugador_2)
+        resultado = jugador_1.disparar(tupla_posicion, jugador_2)
 
         if resultado:
 
@@ -120,14 +163,22 @@ while jugador_1.vidas > 0 and jugador_2.vidas > 0:
             es_maquina = True
 
     else:
+        print("Turno de la CPU")
 
-        tupla_posicion = posicion_random()
+        apuntar = False
 
-        print("La CPU ha disparado a: ", tupla_posicion)
+        while not apuntar:
 
-        disparar(tupla_posicion, jugador_2, jugador_1)
+            tupla_posicion = posicion_random()
 
-        print("Calculando disparo de la CPU")
+            if not tupla_posicion in jugador_2.disparos:
+
+                apuntar =True
+
+        print("La CPU está apuntando a: ", tupla_posicion)
+
+        resultado = jugador_2.disparar(tupla_posicion, jugador_1)
+
 
         sleep(3)
 
@@ -144,10 +195,14 @@ while jugador_1.vidas > 0 and jugador_2.vidas > 0:
 
             sleep(0.5)
 
-if es_maquina:
+if es_maquina and not salir:
 
     print("La máquina ha ganado... Vuelve a jugar que es gratis")
 
-else:
+elif not es_maquina and not salir:
 
     print("¡ENHORABUENA!, HAS GANADO")
+
+elif salir:
+
+    print("Fin del juego")
