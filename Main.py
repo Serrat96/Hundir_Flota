@@ -110,9 +110,9 @@ sleep(0.5)
 
 input("Presiona enter para continuar")
 
-"""print("CARGANDO...")
+print("CARGANDO...")
 for i in tqdm(range(10)):
-    sleep(0.5)"""
+    sleep(0.5)
 
 while jugador_1.vidas > 0 and jugador_2.vidas > 0 :
 
