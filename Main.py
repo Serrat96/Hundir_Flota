@@ -4,36 +4,6 @@ import Constantes as cs
 from time import sleep
 from tqdm import tqdm
 
-'''def disparar(posicion, de_jugador, a_jugador):
-
-    posicion_traducida = traducir_posicion(posicion)
-
-    if a_jugador.tablero_barcos.matriz[posicion_traducida[0],posicion_traducida[1]] == cs.BARCO_CHAR:
-
-        de_jugador.tablero_disparos.matriz[posicion_traducida[0],posicion_traducida[1]] = cs.TOCADO_CHAR
-
-        a_jugador.tablero_barcos.matriz[posicion_traducida[0],posicion_traducida[1]] = cs.TOCADO_CHAR
-
-        a_jugador.vidas -= 1
-
-        return True
-
-    else:
-
-        de_jugador.tablero_disparos.matriz[posicion_traducida[0],posicion_traducida[1]] = cs.FALLO_CHAR
-
-        a_jugador.tablero_barcos.matriz[posicion_traducida[0],posicion_traducida[1]] = cs.FALLO_CHAR
-
-        return False
-
-def traducir_posicion(posicion):
-
-    x = posicion[0] - 1
-
-    y = cs.LISTA_CARACTERES.index(posicion[1])
-
-    return (x, y)'''
-
 def posicion_random():
 
     x = random.randint(1, 10)
@@ -84,13 +54,13 @@ print("                  __--___\n\
               /   /   /   /   /   /\n\
              |   |   |   |   |   |\n\
         __^  |   |   |   |   |   |\n\
-      _/@  \  \   \   \   \   \   \n\
-     S__   |   \   \   \   \   \   \         __\n\
-    (   |  |    \___\___\___\___\___\       /  \n\
+      _/@  \  \   \   \   \   \   \ \n\
+     S__   |   \   \   \   \   \   \         ___ \n\
+    (   |  |    \___\___\___\___\___\       /   \ \n\
         |   \             |                |  |\|\n\
         \    \____________!________________/  /\n\
-         \ _______OOOOOOOOOOOOOOOOOOO________/\n\
-          \_________________________________/\n\
+         \ _________HUNDIR LA FLOTA__________/\n\
+          \________BY JAVIER & SERRAT_______/\n\
 %%%^^^^^%%%%%^^^^!!^%%^^^^%%%%%!!!!^^^^^^!%^^^%%%%!!^^\n\
 ^^!!!!%%%%^^^^!!^^%%%%%^^!!!^^%%%%%!!!%%%%^^^!!^^%%%!\n")
 
@@ -116,8 +86,6 @@ for i in tqdm(range(10)):
 
 while jugador_1.vidas > 0 and jugador_2.vidas > 0 :
 
-    #jugador_2.imprimir_tablero()
-
     if not es_maquina:
         jugador_1.imprimir_tablero()
 
@@ -139,12 +107,6 @@ while jugador_1.vidas > 0 and jugador_2.vidas > 0 :
             salir = True
 
             break
-        '''if len(posicion) == 3:
-
-            tupla_posicion = (int(posicion[0:2]), posicion[2].upper())
-        else:
-
-            tupla_posicion = (int(posicion[0]), posicion[1].upper())'''
 
         resultado = jugador_1.disparar(tupla_posicion, jugador_2)
 
