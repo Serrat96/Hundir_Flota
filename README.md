@@ -15,10 +15,17 @@ esta formado por dos tableros, uno para los disparos y otro para los barcos, una
 * traducir_posicion: se pasa como parámetro la posición numero letra que pasa el jugador y se traduce para leer en la matriz
 
 ## Clase Tablero
-crea un tablero pasandole las dimensiones que se quieren
+crea un tablero pasandole las dimensiones que se quieren, se puede pasar un listado de objetos barcos para que se coloquen (esto no se ha implementado en el juego, ya que se colocan de forma aleatoria)
+
 ### métodos:
 * posicion_random: crea una posición dentro del tablero de forma aleatoria
 * coloca_barcos_random: se encarga de colocar todos los barcos de forma aleatoria
+* coloca_barco: se le pasa un objeto barco como parámetro y en función de las propiedades del objeto se coloca en el tablero (no se ha implementado para esta versión del juego)
+* coloca_barcos: se encarga de colocar los objetos barco que se han pasado en el constructor (no se ha implementado para esta versión del juego)
+
+## Clase Barco
+Representa al objeto Barco (esta clase no se utiliza en esta vesrión del juego)
+Para construir el objeto Barco se le pasan los parámetros tupla posición, el eslora del barco y la propiedad axis que hace referencia a la disposición del barco en el eje x o en el eje y
 
 ## Archivo de constantes
 
