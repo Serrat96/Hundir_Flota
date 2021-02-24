@@ -60,7 +60,7 @@ print("                  __--___\n\
         |   \             |                |  |\|\n\
         \    \____________!________________/  /\n\
          \ _________HUNDIR LA FLOTA__________/\n\
-          \________BY JAVIER & SERRAT_______/\n\
+          \________BY JAVI & SERRAT_________/\n\
 %%%^^^^^%%%%%^^^^!!^%%^^^^%%%%%!!!!^^^^^^!%^^^%%%%!!^^\n\
 ^^!!!!%%%%^^^^!!^^%%%%%^^!!!^^%%%%%!!!%%%%^^^!!^^%%%!\n")
 
@@ -78,11 +78,11 @@ print("El símbolo 'X' hace referencia a un barco tocado")
 
 sleep(0.5)
 
-input("Presiona enter para continuar")
-
 print("CARGANDO...")
 for i in tqdm(range(10)):
     sleep(0.5)
+
+input("Presiona enter para continuar")
 
 while jugador_1.vidas > 0 and jugador_2.vidas > 0 :
 

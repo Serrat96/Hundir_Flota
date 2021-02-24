@@ -9,7 +9,7 @@ class Tablero:
         self.dimension = dimension
         self.matriz = np.full((dimension, dimension), cs.AGUA_CHAR)
         self.barcos = barcos
-        #self.colocar_barcos()
+
 
     def coloca_barco(self, barco):
 
