@@ -88,7 +88,7 @@ while jugador_1.vidas > 0 and jugador_2.vidas > 0 :
 
     if not es_maquina:
         jugador_1.imprimir_tablero()
-
+        #jugador_2.imprimir_tablero()#visualiza el tablero de la máquina, para coprobar que funciona
         while True:
             print("SALIR = 0")
             posicion = str(input("Introduzca la coordenada a la que desea diparar (ej. 10f): "))
