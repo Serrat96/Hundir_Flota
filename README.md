@@ -29,23 +29,23 @@ Para construir el objeto Barco se le pasan los parámetros tupla posición, el e
 
 ## Archivo de constantes
 
-### LISTA_CARACTERES = ['A','B','C','D','E','F','G','H','I','J']
+#### LISTA_CARACTERES = ['A','B','C','D','E','F','G','H','I','J']
 Sirve para traducir la posición de la letra a indice del tablero y para dibujar las referencias en la interfaz
 
-### LISTA_NUMEROS = [1,2,3,4,5,6,7,8,9,10]
+#### LISTA_NUMEROS = [1,2,3,4,5,6,7,8,9,10]
 Sirve para traducir la posición del número a indice del tablero y para dibujar las referencias en la interfaz
 
-### TIPOS_BARCO = [(4, 1), (3, 2), (2, 3), (1, 4)]
+#### TIPOS_BARCO = [(4, 1), (3, 2), (2, 3), (1, 4)]
 guarda un listado de tuplas con el eslora del barco y el número que hay que dibujar
 
-### BARCO_CHAR= "1"
+#### BARCO_CHAR= "1"
 representa el barco
 
-### AGUA_CHAR = "~"
+#### AGUA_CHAR = "~"
 representa el agua
 
-### TOCADO_CHAR = "X"
+#### TOCADO_CHAR = "X"
 representa un tocado de barco
 
-### FALLO_CHAR = "Ø"
+#### FALLO_CHAR = "Ø"
 representa un disparo en el agiua
