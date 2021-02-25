@@ -4,11 +4,11 @@ import random
 
 class Tablero:
 
-    def __init__(self, dimension, barcos=[]):
+    def __init__(self, dimension):
 
         self.dimension = dimension
         self.matriz = np.full((dimension, dimension), cs.AGUA_CHAR)
-        self.barcos = barcos
+
 
     def posicion_random(self):
 
@@ -63,26 +63,3 @@ class Tablero:
     def imprimir_tablero(self):
 
         print(self.matriz)
-
-    def coloca_barco(self, barco):
-
-        cadena_letras = "ABCDEFGHIJ"
-
-        x = barco.posicion[0] - 1
-
-        y = cadena_letras.index(barco.posicion[1])
-
-        if barco.axis == 0:
-
-            self.matriz[x:barco.eslora + x, y] = cs.BARCO_CHAR
-
-        else:
-
-            self.matriz[x, y:barco.eslora + y] = cs.BARCO_CHAR
-
-    def coloca_barcos(self):
-
-        for barco in self.barcos:
-
-            self.coloca_barco(barco)
-
